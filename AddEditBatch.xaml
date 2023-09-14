@@ -1,0 +1,43 @@
+﻿<Window x:Class="ProjectLau.AddEditBatch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectLau"
+        mc:Ignorable="d"
+        Title="AddEditBatch" Height="320" Width="350" Background="Azure">
+    <Grid Margin="10">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content="Batch Id" FontSize="18" Margin="0,0,30,0"/>
+                <TextBox x:Name="txtBatchId" Width="210" FontSize="18"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content="Batch Size" FontSize="18" Margin="0,0,14,0"/>
+                <TextBox x:Name="txtBatchSize" Width="210" FontSize="18"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content="Name" FontSize="18" Margin="0,0,46,0"/>
+                <TextBox x:Name="txtProductName" Width="210" FontSize="18"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content="Completed" FontSize="18" Margin="0,0,6,0"/>
+                <TextBox x:Name="txtCompleted" Width="210" FontSize="18"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content="To Repair" FontSize="18" Margin="0,0,21,0"/>
+                <TextBox x:Name="txtToRepair" Width="210" FontSize="18"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnAddEdit" Content="AddEdit" Height="40" Width="80" FontSize="18" Click="btnAddEdit_Click"/>
+                <Button x:Name="btnDelete" Content="Delete" Height="40" Width="80" FontSize="18" Margin="30,0,0,0" Click="btnDelete_Click"/>
+            </StackPanel>
+           
+        </StackPanel>
+    </Grid>
+</Window>

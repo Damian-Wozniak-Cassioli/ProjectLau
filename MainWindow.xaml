@@ -1,0 +1,63 @@
+﻿<Window x:Class="ProjectLau.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectLau"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="1000">
+
+    <Window.DataContext>
+        <local:Product/>
+    </Window.DataContext>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Batch Info">
+                <Grid>
+                    <DataGrid x:Name="dgBatches" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="800" IsReadOnly="True" FontSize="18" Margin="-190,0,0,0" SelectionChanged="dgBatches_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Batch Id" Binding="{Binding BatchId}" Width="*"/>
+                            <DataGridTextColumn Header="Batch Size" Binding="{Binding BatchSize}" Width="*"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" Width="2*"/>
+                            <DataGridTextColumn Header="Completed" Binding="{Binding Completed}" Width="*"/>
+                            <DataGridTextColumn Header="To Repair" Binding="{Binding ToRepair}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnAddBatch" Content="Add Batch" Margin="800,-350,0,0" Height="75" Width="150" FontSize="20" Click="btnAddBatch_Click"/>
+                    <Button x:Name="btnEditBatch" Content="Edit Batch" Margin="800,-150,0,0" Height="75" Width="150" FontSize="20" Click="btnEditBatch_Click"/>
+                    <Button x:Name="btnStopLine" Content="Stop Line" Margin="800,250,0,0" Height="75" Width="150" FontSize="20" Click="btnStopLine_Click"/>
+                    <Button x:Name="btnStartLine" Content="Start Line" Margin="800,50,0,0" Height="75" Width="150" FontSize="20" Click="btnStartLine_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Current Batch" x:Name="tabCurrent" IsEnabled="False">
+                <StackPanel Background="Bisque">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="Khaki">
+                        <Label Content="CURRENT BATCH " FontSize="18"/>
+                        <TextBlock x:Name="txtBatch" Text="00000" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <Label Content="SIZE " FontSize="18"/>
+                        <TextBlock x:Name="txtSize" Text="000" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <Label Content="COMPLETED" FontSize="18"/>
+                        <Label x:Name="txtCompleted" Content="{Binding ProductsCompleted}" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <Label Content="To Repair"  FontSize="18"/>
+                        <Label x:Name="txtToRepair" Content="{Binding ProductsToRepair}" FontSize="18" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    
+                    <DataGrid x:Name="dgProducts" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="800" Height="410" IsReadOnly="True" FontSize="18" Margin="-190,0,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding ProductId}" Width="*"/>
+                            <DataGridTextColumn Header="State" Binding="{Binding ProductState}" Width="2*"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="3*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Stations" x:Name="tabStations" IsEnabled="False">
+                <WrapPanel x:Name="spStations" Orientation="Horizontal" Width="900"></WrapPanel>
+            </TabItem>
+            <TabItem Header="Log" x:Name="tabLog" IsEnabled="False">
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
